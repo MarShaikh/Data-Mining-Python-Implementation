@@ -36,8 +36,6 @@ groupedData = df.groupby('CustomerID').agg({'UnitPrice' : 'sum',
 groupedData[['UnitPrice', 'Quantity', 'Recency']] = StandardScaler().fit_transform(groupedData[['UnitPrice', 'Quantity', 'Recency']]) 
 
 
-groupedData = groupedData.to_numpy()
-
 
 # initialising the KMeans clustering class
 kmeans = KMeans(init = "random",
@@ -48,3 +46,5 @@ kmeans = KMeans(init = "random",
 
 kmeans.fit(groupedData)
 
+groupedData['cl'] = kmeans.labels_
+groupedData.plot.scatter('Quantity', 'Recency', c = 'cl')
