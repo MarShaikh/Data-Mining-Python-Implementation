@@ -35,3 +35,16 @@ groupedData = df.groupby('CustomerID').agg({'UnitPrice' : 'sum',
 # normalizing the data
 groupedData[['UnitPrice', 'Quantity', 'Recency']] = StandardScaler().fit_transform(groupedData[['UnitPrice', 'Quantity', 'Recency']]) 
 
+
+groupedData = groupedData.to_numpy()
+
+
+# initialising the KMeans clustering class
+kmeans = KMeans(init = "random",
+                n_clusters = 3,
+                n_init = 10,
+                max_iter = 99,
+                random_state = 42)
+
+kmeans.fit(groupedData)
+
