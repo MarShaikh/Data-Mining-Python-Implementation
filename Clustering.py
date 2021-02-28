@@ -46,5 +46,8 @@ kmeans = KMeans(init = "random",
 
 kmeans.fit(groupedData)
 
-groupedData['cl'] = kmeans.labels_
-groupedData.plot.scatter('Quantity', 'Recency', c = 'cl')
+# plotting the clusters
+groupedData['cluster'] = kmeans.labels_
+
+plt.scatter('Quantity', 'Recency', c = 'cluster', data=groupedData)
+plt.show()
