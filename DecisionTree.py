@@ -1,7 +1,7 @@
 from sklearn import tree
 from sklearn.model_selection import train_test_split    # for stratified sampling
 from sklearn.metrics import confusion_matrix
-from sklearn.metrics import accuracy_score
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
