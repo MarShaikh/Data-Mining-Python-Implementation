@@ -1,4 +1,3 @@
-from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split, cross_val_score    # for stratified sampling and cross-validation
 from sklearn import svm
 
